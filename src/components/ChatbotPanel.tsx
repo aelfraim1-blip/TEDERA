@@ -111,7 +111,16 @@ How can I assist your health team today?`,
         }),
       });
 
-      const data = await res.json();
+      let data: any = {};
+      const contentType = res.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        data = await res.json();
+      } else {
+        const rawText = await res.text();
+        throw new Error(
+          `Server returned status ${res.status}: ${rawText.slice(0, 100) || 'Non-JSON response'}`
+        );
+      }
 
       if (!res.ok) {
         throw new Error(data.error || 'Failed to reach TPHIS Gemini assistant service.');

@@ -26,7 +26,7 @@ app.post("/api/chat", async (req, res) => {
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
       res.status(500).json({
-        error: "GEMINI_API_KEY is missing. Please configure it in the Secrets panel.",
+        error: "GEMINI_API_KEY environment variable is missing on the server. Please set GEMINI_API_KEY in the platform Secrets / Environment Variables panel.",
       });
       return;
     }
