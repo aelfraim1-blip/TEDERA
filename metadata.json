@@ -1,0 +1,6 @@
+{
+  "name": "TEDERA Public Health Intelligence System",
+  "description": "Disease analytics, case projections, community risk assessment, and Gemini AI health assistant for Koronadal City.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
